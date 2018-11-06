@@ -107,19 +107,6 @@ public class DiscussionActivity extends AppCompatActivity {
                 mChatContainer.smoothScrollToPosition(chatList.size() - 1);
             }
         });
-
-        addDocs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                discussionOptionsSheetDialog obj = new discussionOptionsSheetDialog();
-                Bundle bundle = new Bundle();
-                bundle.putString("Title", getTitle);
-                bundle.putString("id", mAuth.getCurrentUser().getUid());
-                obj.setArguments(bundle);
-                obj.show(getSupportFragmentManager(), "discussionOptionsBottomSheet");
-            }
-        });
-
         adapter = new chatAdapter(chatList, getTitle,mAuth.getCurrentUser().getUid());
         mChatContainer.setHasFixedSize(true);
         mChatContainer.setLayoutManager(new LinearLayoutManager(DiscussionActivity.this));
